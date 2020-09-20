@@ -34,9 +34,9 @@
 
             <li class="nav-header">Sections</li>
             <li class="nav-item">
-              <a href="https://adminlte.io/docs/3.0" class="nav-link">
+              <a href="{{ route('message.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
-                <p>Documentation</p>
+                <p>Messages</p>
               </a>
             </li>
             <li class="nav-header">MULTI LEVEL Sections</li>

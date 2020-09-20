@@ -26,3 +26,8 @@ Route::get('admin-data', 'HomeController@data')->name('admin.data');
 
 Route::get('admin-login', 'Admin\Auth\LoginController@login')->name('admin.login');
 Route::post('admin-login', 'Admin\Auth\LoginController@login')->name('admin.login');
+
+// messages
+Route::get('meassage-index', 'HomeController@messageIndex')->name('message.index');
+Route::get('meassage-level1/{index}', 'HomeController@messageLevel1')->name('message.level1');
+Route::get('meassage-level1/meassage-level2/{index}/{index2}', 'HomeController@messageLevel2')->name('message.level2');

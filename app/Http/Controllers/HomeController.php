@@ -29,4 +29,8 @@ class HomeController extends Controller
     public function dashboard() {
         return view('admin.pages.master');
     }
+
+    public function login() {
+        return view('admin.pages.login');
+    }
 }

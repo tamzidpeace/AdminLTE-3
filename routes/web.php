@@ -16,18 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/logout', 'Auth\LoginController@logoutUser')->name('user.logout');
 
-Route::get('admin-dashboard', 'HomeController@dashboard')->name('admin.dashboard');
-Route::get('admin-data', 'HomeController@data')->name('admin.data');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'AuthAdmin\LoginController@login')->name('admin.login.submit');
+    Route::get('/', 'AdminController@index')->name('admin.home');
+    Route::get('/logout', 'AuthAdmin\loginController@logout')->name('admin.logout');
+    Route::get('/password/reset', 'AuthAdmin\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('/password/email', 'AuthAdmin\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('/password/reset/{token}','AuthAdmin\ResetPasswordController@showResetForm')->name('admin.password.reset');
+    Route::post('/password/reset', 'AuthAdmin\ResetPasswordController@reset');
+});
 
-Route::get('admin-login', 'Admin\Auth\LoginController@login')->name('admin.login');
-Route::post('admin-login', 'Admin\Auth\LoginController@login')->name('admin.login');
-
-// messages
-Route::get('meassage-index', 'HomeController@messageIndex')->name('message.index');
-Route::get('meassage-level1/{index}', 'HomeController@messageLevel1')->name('message.level1');
-Route::get('meassage-level1/meassage-level2/{index}/{index2}', 'HomeController@messageLevel2')->name('message.level2');

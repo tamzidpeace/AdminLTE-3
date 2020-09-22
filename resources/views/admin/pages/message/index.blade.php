@@ -90,8 +90,9 @@
                dataType: 'JSON',
                data: {index:x},
                success: function(result) {
-                    //console.log(result[0][0]);
+                    console.log(result);
                     $('#schedules_div').html('');
+                    $('#sub_cat2_div').html('');
           for(var i=0;i<result[0].length;i++){
         $('#schedules_div').append('<a class="list-group-item list-group-item-action" id="list-home-list"  href="#" onclick="messages('+ result[1] + ',' + i + ')" data-toggle="list" href="#" role="tab" aria-controls="home">'+result[0][i]+'</a>');
         }

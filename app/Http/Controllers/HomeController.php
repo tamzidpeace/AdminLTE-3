@@ -95,14 +95,10 @@ class HomeController extends Controller
         $ref = $this->getFirebase();
         $data = $ref->getValue();
         $keys = array_keys($data);
-        
-
-        for ($i=0; $i < count($keys); $i++) {
-            $keys2 = array_keys($data[$keys[$i]]);
-        }
+                
+        $keys2 = array_keys($data[$keys[$index]]);        
         $result  = [$keys2, $index];
-        return response()->json($result);
-        return view('admin.pages.message.index2')->with('keys', $keys2)->with('index', $index);
+        return response()->json($result);        
     }
 
     public function messageLevel2(Request $result)
@@ -115,9 +111,7 @@ class HomeController extends Controller
         $keys = array_keys($data);
         $keys2 = array_keys($data[$keys[$index]]);
         $keys3 = array_keys($data[$keys[$index]][$keys2[$index2]]);
-        
-        //return $data[$keys[$index]][$keys2[$index2]][$keys3[0]]['number'];
-        
+                    
         return view('admin.pages.message.test')
         ->with('keys', $keys)
         ->with('keys2', $keys2)

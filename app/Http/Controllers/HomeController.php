@@ -33,7 +33,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $ref = $this->getFirebase();
+        $data = $ref->getValue();
+        $keys = array_keys($data);
+        
+        return view('admin.pages.message.index', compact('keys'));
     }
 
     public function dashboard()

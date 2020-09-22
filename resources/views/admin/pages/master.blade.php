@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Panel | Dashboard</title>  
+  <title>Admin Panel | Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   @include('admin.includes.styles')
-  
+  <style>
+    
+  </style>
+
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
-  <div class="wrapper">
+<body style="" class="hold-transition sidebar-mini layout-fixed">
+  <div style="background: black" class="wrapper">
     @include('admin.includes.navbar')   
-    @include('admin.includes.sidebar')    
-    @include('admin.includes.content_top')   
+    {{-- @include('admin.includes.sidebar')     --}}
+    @include('admin.includes.content_top')
     {{-- @yield('content')        --}}
-    @include('admin.includes.footer')    
-  </div>  
+    @include('admin.includes.footer')
+  </div>
   @include('admin.includes.scripts')
   @yield('scripts')
 </body>
+
 </html>

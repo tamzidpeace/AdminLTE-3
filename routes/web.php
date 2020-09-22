@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/', 'HomeController@logout')->name('user.logout');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin-dashboard', 'HomeController@dashboard')->name('admin.dashboard');

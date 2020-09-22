@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Http\Request;
 
 use Kreait\Firebase;
@@ -42,6 +44,11 @@ class HomeController extends Controller
     public function login()
     {
         return view('admin.pages.login');
+    }
+    
+    public function logout() {
+        Auth::logout();
+        return \redirect('/');
     }
 
     public function data()

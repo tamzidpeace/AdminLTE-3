@@ -46,7 +46,8 @@ class HomeController extends Controller
         return view('admin.pages.login');
     }
     
-    public function logout() {
+    public function logout()
+    {
         Auth::logout();
         return \redirect('/');
     }
@@ -84,8 +85,9 @@ class HomeController extends Controller
         return view('admin.pages.message.index', compact('keys'));
     }
 
-    public function messageLevel1($index)
+    public function messageLevel1(Request $request)
     {
+        $index = $request->index;
         $ref = $this->getFirebase();
         $data = $ref->getValue();
         $keys = array_keys($data);
@@ -94,12 +96,16 @@ class HomeController extends Controller
         for ($i=0; $i < count($keys); $i++) {
             $keys2 = array_keys($data[$keys[$i]]);
         }
-
+        $result  = [$keys2, $index];
+        return response()->json($result);
         return view('admin.pages.message.index2')->with('keys', $keys2)->with('index', $index);
     }
 
-    public function messageLevel2($index, $index2)
+    public function messageLevel2(Request $result)
     {
+        $index = $result->index;
+        $index2 = $result->index2;
+
         $ref = $this->getFirebase();
         $data = $ref->getValue();
         $keys = array_keys($data);
@@ -108,7 +114,7 @@ class HomeController extends Controller
         
         //return $data[$keys[$index]][$keys2[$index2]][$keys3[0]]['number'];
         
-        return view('admin.pages.message.index4')
+        return view('admin.pages.message.test')
         ->with('keys', $keys)
         ->with('keys2', $keys2)
         ->with('keys3', $keys3)

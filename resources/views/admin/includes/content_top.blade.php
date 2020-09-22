@@ -86,14 +86,14 @@
       </div> --}}
 
     </div>
-
-    <div class="container">
+    @yield('content')
+    {{-- <div class="container">
       <div class="row">
 
         @yield('content')
 
       </div>
-    </div>
+    </div> --}}
 
 
 

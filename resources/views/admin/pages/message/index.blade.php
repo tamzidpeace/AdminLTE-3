@@ -17,6 +17,7 @@
           <div class="row">
                <div class="col-md-3">
                     <div class="make-border">
+                         <h5>To</h5>
                          <div class="list-group" id="list-tab" role="tablist">
                               @php
                               $x = 0;
@@ -33,14 +34,16 @@
                     </div>
                </div>
 
-               <div class=" col-md-3">
+               <div class="col-md-3">
                     <div class="make-border">
+                         <h5>From</h5>
                          <div class="list-group" id="schedules_div" role="tablist">
                          </div>
                     </div>
                </div>               
                <div class="col-md-3">
                     <div class="make-border">
+                         <h5>Messages</h5>
                          <div class="list-group" id="sub_cat2_div" role="tablist">
 
                          </div>
